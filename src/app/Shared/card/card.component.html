@@ -1,0 +1,13 @@
+<mat-card routerLink="/character/{{ character.id }}">
+  <mat-card-header>
+    <mat-card-title>{{ character.name }}</mat-card-title>
+    <mat-card-subtitle>{{ character.gender }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <img
+      mat-card-image
+      src="{{ character.image }}"
+      alt="Photo of a character"
+    />
+  </mat-card-content>
+</mat-card>

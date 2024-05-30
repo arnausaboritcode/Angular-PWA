@@ -1,0 +1,25 @@
+<div style="display: flex; justify-content: end; padding: 20px">
+  <button (click)="toggleShowCards()" [ngClass]="{ backgroundDark: showCards }">
+    <mat-icon>dashboard</mat-icon>
+  </button>
+  <button (click)="toogleShowList()" [ngClass]="{ backgroundDark: showList }">
+    <mat-icon>format_list_bulleted</mat-icon>
+  </button>
+</div>
+
+<div *ngIf="showCards">
+  <div class="content" [@fadeInOut] *ngIf="!spinner; else showSpinner">
+    <app-card
+      *ngFor="let character of characters"
+      [character]="character"
+    ></app-card>
+  </div>
+</div>
+
+<div *ngIf="showList">
+  <div *ngIf="!spinner; else showSpinner" [@fadeInOut]>
+    <app-grid [characters]="characters"></app-grid>
+  </div>
+</div>
+
+<ng-template #showSpinner><app-spinner></app-spinner></ng-template>
